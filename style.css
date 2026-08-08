@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e0f2fe, #dbeafe);
+    transition: 0.3s;
+}
+
+.chatbot {
+    width: 420px;
+    height: 650px;
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+
+.chat-header {
+    background: linear-gradient(135deg, #1677ff, #00a8ff);
+    color: white;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bot-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bot-icon {
+    width: 48px;
+    height: 48px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
+}
+
+.bot-info h2 {
+    font-size: 20px;
+}
+
+.bot-info span {
+    font-size: 12px;
+    color: #dff7ff;
+}
+
+.dark-btn {
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Chat */
+
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f8fafc;
+}
+
+.message {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+    align-items: flex-end;
+}
+
+.bot-message {
+    justify-content: flex-start;
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    background: #e0f2fe;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.message-content {
+    max-width: 75%;
+    padding: 12px 15px;
+    border-radius: 16px;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.bot-message .message-content {
+    background: #e5e7eb;
+    color: #222;
+    border-bottom-left-radius: 4px;
+}
+
+.user-message .message-content {
+    background: #1687f8;
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+/* Copy button */
+
+.copy-btn {
+    margin-top: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+    color: #1677ff;
+}
+
+/* Input */
+
+.input-area {
+    display: flex;
+    padding: 15px;
+    gap: 10px;
+    background: white;
+    border-top: 1px solid #ddd;
+}
+
+#userInput {
+    flex: 1;
+    padding: 13px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 25px;
+    outline: none;
+    font-size: 14px;
+}
+
+#userInput:focus {
+    border-color: #1687f8;
+}
+
+.send-btn {
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: #1687f8;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.send-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Dark Mode */
+
+body.dark {
+    background: #111827;
+}
+
+body.dark .chatbot {
+    background: #1f2937;
+}
+
+body.dark .chat-messages {
+    background: #111827;
+}
+
+body.dark .bot-message .message-content {
+    background: #374151;
+    color: white;
+}
+
+body.dark .input-area {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark #userInput {
+    background: #374151;
+    color: white;
+    border-color: #4b5563;
+}
+
+body.dark #userInput::placeholder {
+    color: #cbd5e1;
+}
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+    .chatbot {
+        width: 95%;
+        height: 90vh;
+        border-radius: 18px;
+    }
+
+    .chat-header {
+        padding: 15px;
+    }
+
+    .message-content {
+        max-width: 80%;
+    }
+}
+
+.typing {
+    display: none;
+    color: #64748b;
+    font-size: 13px;
+    padding: 5px 20px 12px;
+    font-style: italic;
+}
+
+body.dark .typing {
+    color: #cbd5e1;
+}
+
+.clear-btn {
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.clear-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
